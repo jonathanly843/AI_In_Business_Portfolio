@@ -1,0 +1,777 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jonathan Ly — AI in Business Portfolio | MIS 432</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0e0e0d;
+    --off-black: #1a1a18;
+    --magenta: #e8197d;
+    --magenta-dark: #c0146a;
+    --off-white: #f6f4f1;
+    --white: #ffffff;
+    --border: #e0ddd8;
+    --text-body: #3a3a38;
+    --text-muted: #7a7a78;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 400;
+    color: var(--text-body);
+    background: var(--off-white);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── NAV ── */
+  nav {
+    background: var(--black);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 52px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #2a2a28;
+  }
+
+  .nav-brand {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    text-decoration: none;
+  }
+
+  .nav-brand span { color: var(--magenta); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #a0a09e;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--magenta); }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--black);
+    border-bottom: 5px solid var(--magenta);
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.07;
+  }
+
+  .hero-grid line {
+    stroke: var(--magenta);
+    stroke-width: 1;
+  }
+
+  .hero-inner {
+    position: relative;
+    max-width: 960px;
+    margin: 0 auto;
+  }
+
+  .hero-eyebrow {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 1.25rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .hero-eyebrow::before {
+    content: '';
+    display: inline-block;
+    width: 32px;
+    height: 2px;
+    background: var(--magenta);
+  }
+
+  .hero h1 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+    color: var(--off-white);
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero h1 .accent { color: var(--magenta); }
+
+  .hero-subtitle {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 300;
+    font-size: 1rem;
+    letter-spacing: 0.04em;
+    color: #8a8a88;
+    margin-bottom: 2.5rem;
+    text-transform: uppercase;
+  }
+
+  .hero-subtitle span {
+    color: #c0c0be;
+    margin: 0 0.5em;
+  }
+
+  .hero-cta {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--black);
+    background: var(--magenta);
+    padding: 0.7rem 1.6rem;
+    text-decoration: none;
+    transition: background 0.2s, transform 0.15s;
+  }
+
+  .hero-cta:hover {
+    background: var(--magenta-dark);
+    transform: translateY(-1px);
+  }
+
+  /* ── SECTION WRAPPER ── */
+  .section {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .section-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .section-label::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 2px;
+    background: var(--magenta);
+  }
+
+  .section-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    color: var(--off-black);
+    margin-bottom: 1.75rem;
+    line-height: 1.1;
+  }
+
+  /* ── ABOUT ── */
+  .about-bg {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .about-text {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    max-width: 720px;
+  }
+
+  .about-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .stat-item {}
+
+  .stat-num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 2.2rem;
+    color: var(--magenta);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.78rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-top: 0.25rem;
+    display: block;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-bg {
+    background: var(--off-white);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .projects-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; }
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--magenta);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    transition: box-shadow 0.2s, border-color 0.2s, transform 0.15s;
+    cursor: default;
+  }
+
+  .card:hover {
+    box-shadow: 0 0 0 2px var(--magenta), 0 8px 24px rgba(232,25,125,0.08);
+    transform: translateY(-2px);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 0.6rem;
+    gap: 0.5rem;
+  }
+
+  .card-icon {
+    font-size: 1.5rem;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .card-num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #c8c5c0;
+    padding: 0.25rem 0.5rem;
+    border: 1px solid var(--border);
+    line-height: 1;
+  }
+
+  .card-company {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.35rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--off-black);
+    margin-bottom: 0.2rem;
+    line-height: 1;
+  }
+
+  .card-title {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 0.78rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--magenta);
+    margin-bottom: 0.9rem;
+  }
+
+  .card-desc {
+    font-size: 0.88rem;
+    line-height: 1.65;
+    color: var(--text-body);
+    margin-bottom: 1.1rem;
+    flex: 1;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .tag {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 500;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    padding: 0.2rem 0.55rem;
+  }
+
+  .card-link {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--magenta);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s, gap 0.2s;
+    margin-top: auto;
+    border-bottom: 1px solid transparent;
+    padding-bottom: 1px;
+  }
+
+  .card-link:hover {
+    color: var(--magenta-dark);
+    gap: 0.65rem;
+    border-bottom-color: var(--magenta-dark);
+  }
+
+  /* ── TAKEAWAYS ── */
+  .takeaways-bg {
+    background: var(--off-black);
+    border-top: 5px solid var(--magenta);
+  }
+
+  .takeaways-bg .section-title { color: var(--off-white); }
+  .takeaways-bg .section-label { color: var(--magenta); }
+
+  .callout {
+    border: 1px solid #2e2e2c;
+    border-left: 4px solid var(--magenta);
+    background: rgba(232,25,125,0.04);
+    padding: 2rem 2rem 2rem 1.75rem;
+  }
+
+  .takeaways-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .takeaways-list li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+  }
+
+  .takeaway-num {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: var(--magenta);
+    flex-shrink: 0;
+    line-height: 1.4;
+    min-width: 1.5rem;
+  }
+
+  .takeaway-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #c0c0be;
+  }
+
+  .takeaway-text strong {
+    font-weight: 600;
+    color: var(--off-white);
+    display: block;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.15rem;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    border-top: 5px solid var(--magenta);
+    padding: 2.5rem 2rem;
+  }
+
+  .footer-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  .footer-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.15rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--off-white);
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .footer-links a {
+    font-size: 0.82rem;
+    color: #8a8a88;
+    text-decoration: none;
+    transition: color 0.2s;
+    letter-spacing: 0.02em;
+  }
+
+  .footer-links a:hover { color: var(--magenta); }
+
+  .footer-credit {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #3a3a38;
+    text-align: right;
+    line-height: 2;
+    align-self: flex-end;
+  }
+
+  .footer-credit span {
+    color: var(--magenta);
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-brand" href="#">Jonathan Ly <span>·</span> MIS 432</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#takeaways">Takeaways</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <svg class="hero-grid" aria-hidden="true" preserveAspectRatio="none" viewBox="0 0 960 340" xmlns="http://www.w3.org/2000/svg">
+    <!-- vertical lines -->
+    <line x1="96" y1="0" x2="96" y2="340"/>
+    <line x1="192" y1="0" x2="192" y2="340"/>
+    <line x1="288" y1="0" x2="288" y2="340"/>
+    <line x1="384" y1="0" x2="384" y2="340"/>
+    <line x1="480" y1="0" x2="480" y2="340"/>
+    <line x1="576" y1="0" x2="576" y2="340"/>
+    <line x1="672" y1="0" x2="672" y2="340"/>
+    <line x1="768" y1="0" x2="768" y2="340"/>
+    <line x1="864" y1="0" x2="864" y2="340"/>
+    <!-- horizontal lines -->
+    <line x1="0" y1="68" x2="960" y2="68"/>
+    <line x1="0" y1="136" x2="960" y2="136"/>
+    <line x1="0" y1="204" x2="960" y2="204"/>
+    <line x1="0" y1="272" x2="960" y2="272"/>
+  </svg>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">AI in Business Portfolio</p>
+    <h1>Jonathan<br><span class="accent">Ly</span></h1>
+    <p class="hero-subtitle">
+      MIS 432
+      <span>·</span>
+      Western Washington University
+      <span>·</span>
+      College of Business and Economics
+      <span>·</span>
+      Spring 2026
+    </p>
+    <a href="#projects" class="hero-cta">View All 7 Labs →</a>
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section class="about-bg" id="about">
+  <div class="section">
+    <p class="section-label">About This Portfolio</p>
+    <h2 class="section-title">A Quarter in AI</h2>
+    <p class="about-text">
+      This portfolio documents seven hands-on labs I completed in MIS 432: AI in Business at Western Washington University during Spring 2026. Each lab challenged me to go beyond surface-level AI hype and examine how a real company — from a drug-discovery startup to a self-driving car fleet — actually deploys machine learning, algorithmic decision-making, and agentic AI in production environments. I built interactive case-study websites for companies including Netflix, Spotify, Uber, Waymo, Airbnb, and Epic Healthcare, researching the data pipelines, model architectures, and governance frameworks that underpin each system. What I took away most was the persistent gap between what AI promises in a press release and what it takes to ship a system that is accurate, fair, and operationally reliable at scale.
+    </p>
+    <div class="about-stats">
+      <div class="stat-item">
+        <span class="stat-num">7</span>
+        <span class="stat-label">Lab Case Studies</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">7</span>
+        <span class="stat-label">Real Companies</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">AI Concepts Covered</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-num">1</span>
+        <span class="stat-label">Quarter of Learning</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-bg" id="projects">
+  <div class="section">
+    <p class="section-label">Lab Portfolio</p>
+    <h2 class="section-title">Seven Companies, Seven AI Systems</h2>
+
+    <div class="projects-grid">
+
+      <!-- 1. EveryCure -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">💊</div>
+          <span class="card-num">Lab 01</span>
+        </div>
+        <div class="card-company">EveryCure</div>
+        <div class="card-title">AI for Drug Repurposing</div>
+        <p class="card-desc">I investigated how EveryCure uses knowledge graphs and biomedical NLP to surface existing FDA-approved drugs as candidates for rare diseases — dramatically cutting the time and cost of bringing treatments to patients. This lab showed me how structured data from disparate scientific sources can be unified into a single queryable graph that a model can reason over.</p>
+        <div class="tags">
+          <span class="tag">Knowledge Graphs</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Drug Discovery</span>
+          <span class="tag">Biomedical AI</span>
+        </div>
+        <a class="card-link" href="https://jonathanly843.github.io/MIS432_EveryCure_Case_Website/" target="_blank" rel="noopener">View Project →</a>
+      </div>
+
+      <!-- 2. Netflix -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🎬</div>
+          <span class="card-num">Lab 02</span>
+        </div>
+        <div class="card-company">Netflix</div>
+        <div class="card-title">A/B Testing & Experimentation</div>
+        <p class="card-desc">I explored Netflix's industrial-scale experimentation platform, which runs hundreds of concurrent A/B tests to make decisions about everything from thumbnail art to recommendation ranking. The key insight: statistical rigor and a culture of experimentation matter more than any single model, because bad tests produce confidently wrong decisions.</p>
+        <div class="tags">
+          <span class="tag">A/B Testing</span>
+          <span class="tag">Causal Inference</span>
+          <span class="tag">Experimentation</span>
+          <span class="tag">Statistics</span>
+        </div>
+        <a class="card-link" href="https://jonathanly843.github.io/MIS432_Lab2_NetflixABTest/" target="_blank" rel="noopener">View Project →</a>
+      </div>
+
+      <!-- 3. Spotify -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🎧</div>
+          <span class="card-num">Lab 03</span>
+        </div>
+        <div class="card-company">Spotify</div>
+        <div class="card-title">Recommendation Systems & Personalization</div>
+        <p class="card-desc">I mapped Spotify's hybrid recommendation architecture, combining collaborative filtering, content-based audio analysis, and natural language processing of editorial playlists. Building the case study forced me to grapple with the cold-start problem and how personalization at 600M users requires constant retraining and careful handling of feedback loops.</p>
+        <div class="tags">
+          <span class="tag">Recommendation Systems</span>
+          <span class="tag">Collaborative Filtering</span>
+          <span class="tag">NLP</span>
+          <span class="tag">Audio ML</span>
+        </div>
+        <a class="card-link" href="https://jonathanly843.github.io/MIS432_Spotify_Recommendation_Engine/" target="_blank" rel="noopener">View Project →</a>
+      </div>
+
+      <!-- 4. Uber -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🚗</div>
+          <span class="card-num">Lab 04</span>
+        </div>
+        <div class="card-company">Uber</div>
+        <div class="card-title">Forecasting & Dynamic Pricing</div>
+        <p class="card-desc">I analyzed how Uber's surge pricing engine uses demand forecasting models and real-time geospatial data to balance rider supply and driver availability. The lab made the business logic of dynamic pricing concrete: it's not just revenue optimization, it's a mechanism to clear markets and reduce wait times when demand spikes unexpectedly.</p>
+        <div class="tags">
+          <span class="tag">Dynamic Pricing</span>
+          <span class="tag">Time-Series Forecasting</span>
+          <span class="tag">Geospatial AI</span>
+          <span class="tag">Reinforcement Learning</span>
+        </div>
+        <a class="card-link" href="https://jonathanly843.github.io/MIS432_Uber_Forecasting/" target="_blank" rel="noopener">View Project →</a>
+      </div>
+
+      <!-- 5. Waymo -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🚘</div>
+          <span class="card-num">Lab 05</span>
+        </div>
+        <div class="card-company">Waymo</div>
+        <div class="card-title">Deep Learning & Computer Vision</div>
+        <p class="card-desc">I examined how Waymo fuses LiDAR, radar, and camera data through deep convolutional networks to perceive and navigate complex urban environments in real time. This was the most technically demanding lab — it clarified how the gap between 99% and 99.999% model accuracy is what separates a demo car from a commercially viable safety-critical system.</p>
+        <div class="tags">
+          <span class="tag">Computer Vision</span>
+          <span class="tag">Deep Learning</span>
+          <span class="tag">Sensor Fusion</span>
+          <span class="tag">Autonomous Vehicles</span>
+        </div>
+        <a class="card-link" href="https://jonathanly843.github.io/MIS432_Waymo_AIStrategy/" target="_blank" rel="noopener">View Project →</a>
+      </div>
+
+      <!-- 6. Airbnb -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏡</div>
+          <span class="card-num">Lab 06</span>
+        </div>
+        <div class="card-company">Airbnb</div>
+        <div class="card-title">Marketplace AI & Dynamic Pricing</div>
+        <p class="card-desc">I studied how Airbnb's Smart Pricing and search-ranking systems use machine learning to simultaneously serve hosts, guests, and the platform's marketplace health. The dual-sided nature of the platform means every optimization trade-off has downstream effects on both supply and demand — a reminder that ML in marketplaces is as much mechanism design as it is model engineering.</p>
+        <div class="tags">
+          <span class="tag">Marketplace AI</span>
+          <span class="tag">Dynamic Pricing</span>
+          <span class="tag">Search Ranking</span>
+          <span class="tag">Two-Sided Markets</span>
+        </div>
+        <a class="card-link" href="https://jonathanly843.github.io/MIS432_Airbnb/" target="_blank" rel="noopener">View Project →</a>
+      </div>
+
+      <!-- 7. Epic -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-icon">🏥</div>
+          <span class="card-num">Lab 07</span>
+        </div>
+        <div class="card-company">Epic Healthcare</div>
+        <div class="card-title">Agentic AI & Insurance Advocacy</div>
+        <p class="card-desc">I built a case study around agentic AI workflows in healthcare — specifically how autonomous AI agents can coordinate prior-authorization appeals, navigate insurer documentation requirements, and surface clinical evidence to support patient advocacy at scale. This lab raised the highest-stakes governance questions of the quarter: when and how should a human be in the loop for a system making decisions that affect patient care?</p>
+        <div class="tags">
+          <span class="tag">Agentic AI</span>
+          <span class="tag">Healthcare AI</span>
+          <span class="tag">Workflow Automation</span>
+          <span class="tag">Human-in-the-Loop</span>
+        </div>
+        <a class="card-link" href="https://jonathanly843.github.io/MIS432_Agentic_AI_Workflow/" target="_blank" rel="noopener">View Project →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TAKEAWAYS -->
+<section class="takeaways-bg" id="takeaways">
+  <div class="section">
+    <p class="section-label" style="color: var(--magenta);">Quarter Reflections</p>
+    <h2 class="section-title">Key Takeaways</h2>
+    <div class="callout">
+      <ul class="takeaways-list">
+        <li>
+          <span class="takeaway-num">01</span>
+          <span class="takeaway-text">
+            <strong>AI is only as good as its data pipeline.</strong>
+            Every company in this portfolio invested as heavily in data infrastructure — labeling, cleaning, feature engineering, and real-time ingestion — as in the models themselves. A brilliant architecture trained on bad or incomplete data consistently underperforms a simpler model trained on high-quality, representative data.
+          </span>
+        </li>
+        <li>
+          <span class="takeaway-num">02</span>
+          <span class="takeaway-text">
+            <strong>Every AI system needs a human-in-the-loop governance plan.</strong>
+            From Waymo's safety drivers to Epic's clinical oversight requirements, every production AI system I studied had explicit mechanisms for human review, override, and accountability. Governance is not a compliance checkbox — it's load-bearing architecture.
+          </span>
+        </li>
+        <li>
+          <span class="takeaway-num">03</span>
+          <span class="takeaway-text">
+            <strong>Business value comes from workflow integration, not model accuracy alone.</strong>
+            Spotify's recommendations and Airbnb's pricing tools create value because they are deeply embedded in the product experience — not because they achieve a high benchmark score in isolation. The last mile of AI deployment, connecting a model's output to a real decision a user takes action on, is often harder than training the model.
+          </span>
+        </li>
+        <li>
+          <span class="takeaway-num">04</span>
+          <span class="takeaway-text">
+            <strong>The gap between AI hype and implementation reality is measurable in cost, time, and risk.</strong>
+            Lab after lab, I found that the companies doing AI well had accepted long timelines, expensive data infrastructure, and the possibility of failure. The ones in the news for AI problems had often skipped these steps. Credible AI strategy means being honest about all three.
+          </span>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <p class="footer-name">Jonathan Ly</p>
+      <div class="footer-links">
+        <a href="mailto:jonathan.ly843@gmail.com">jonathan.ly843@gmail.com</a>
+        <a href="https://www.linkedin.com/in/ly-jonathan843" target="_blank" rel="noopener">linkedin.com/in/ly-jonathan843</a>
+      </div>
+    </div>
+    <div class="footer-credit">
+      <div>Built with <span>Claude</span></div>
+      <div>MIS 432 · AI in Business</div>
+      <div>Western Washington University · Spring 2026</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
