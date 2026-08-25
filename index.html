@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Jonathan Ly — AI in Business Portfolio | MIS 432</title>
+<title>Jonathan Ly | AI in Business Portfolio | MIS 432</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600&display=swap" rel="stylesheet">
@@ -13,8 +13,8 @@
   :root {
     --black: #0e0e0d;
     --off-black: #1a1a18;
-    --magenta: #e8197d;
-    --magenta-dark: #c0146a;
+    --magenta: #2d7a49;
+    --magenta-dark: #236038;
     --off-white: #f6f4f1;
     --white: #ffffff;
     --border: #e0ddd8;
@@ -161,15 +161,45 @@
     font-size: 0.8rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: var(--black);
-    background: var(--magenta);
+    color: var(--off-white);
+    background: transparent;
+    border: 1px solid #3a3a38;
     padding: 0.7rem 1.6rem;
     text-decoration: none;
-    transition: background 0.2s, transform 0.15s;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
   }
 
   .hero-cta:hover {
-    background: var(--magenta-dark);
+    border-color: var(--magenta);
+    color: var(--magenta);
+    transform: translateY(-1px);
+  }
+
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    align-items: center;
+  }
+
+  .hero-cta-ghost {
+    display: inline-block;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--off-white);
+    background: transparent;
+    border: 1px solid #3a3a38;
+    padding: 0.7rem 1.6rem;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s, transform 0.15s;
+  }
+
+  .hero-cta-ghost:hover {
+    border-color: var(--magenta);
+    color: var(--magenta);
     transform: translateY(-1px);
   }
 
@@ -284,7 +314,7 @@
   }
 
   .card:hover {
-    box-shadow: 0 0 0 2px var(--magenta), 0 8px 24px rgba(232,25,125,0.08);
+    box-shadow: 0 0 0 2px var(--magenta), 0 8px 24px rgba(45,122,73,0.08);
     transform: translateY(-2px);
   }
 
@@ -397,7 +427,7 @@
   .callout {
     border: 1px solid #2e2e2c;
     border-left: 4px solid var(--magenta);
-    background: rgba(232,25,125,0.04);
+    background: rgba(45,122,73,0.05);
     padding: 2rem 2rem 2rem 1.75rem;
   }
 
@@ -499,6 +529,108 @@
   .footer-credit span {
     color: var(--magenta);
   }
+
+  /* ── PROTOTYPES ── */
+  .prototypes-bg {
+    background: var(--white);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .proto-intro {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--text-body);
+    max-width: 720px;
+    margin-bottom: 2.5rem;
+  }
+
+  .proto-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.25rem;
+  }
+
+  @media (max-width: 720px) {
+    .proto-grid { grid-template-columns: 1fr; }
+  }
+
+  @media (min-width: 721px) and (max-width: 900px) {
+    .proto-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  .proto-card {
+    background: var(--off-white);
+    border: 1px solid var(--border);
+    border-top: 4px solid var(--off-black);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    transition: box-shadow 0.2s, border-top-color 0.2s, transform 0.15s;
+  }
+
+  .proto-card:hover {
+    border-top-color: var(--magenta);
+    box-shadow: 0 0 0 2px var(--magenta), 0 8px 24px rgba(45,122,73,0.07);
+    transform: translateY(-2px);
+  }
+
+  .proto-icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    margin-bottom: 0.9rem;
+  }
+
+  .proto-label {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin-bottom: 0.3rem;
+  }
+
+  .proto-name {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--off-black);
+    margin-bottom: 0.75rem;
+    line-height: 1.15;
+  }
+
+  .proto-desc {
+    font-size: 0.85rem;
+    line-height: 1.65;
+    color: var(--text-body);
+    flex: 1;
+    margin-bottom: 1.1rem;
+  }
+
+  .proto-link {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--off-black);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    transition: color 0.2s, gap 0.2s;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 1px;
+  }
+
+  .proto-link:hover {
+    color: var(--magenta);
+    gap: 0.65rem;
+    border-bottom-color: var(--magenta);
+  }
 </style>
 </head>
 <body>
@@ -510,6 +642,7 @@
     <li><a href="#about">About</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#takeaways">Takeaways</a></li>
+    <li><a href="#prototypes">Prototypes</a></li>
   </ul>
 </nav>
 
@@ -544,7 +677,11 @@
       <span>·</span>
       Spring 2026
     </p>
-    <a href="#projects" class="hero-cta">View All 7 Labs →</a>
+    <div class="hero-cta-row">
+      <a href="#projects" class="hero-cta">The Labs →</a>
+      <a href="#takeaways" class="hero-cta-ghost">Key Takeaways →</a>
+      <a href="#prototypes" class="hero-cta-ghost">Prototypes →</a>
+    </div>
   </div>
 </header>
 
@@ -554,7 +691,7 @@
     <p class="section-label">About This Portfolio</p>
     <h2 class="section-title">A Quarter in AI</h2>
     <p class="about-text">
-      This portfolio documents seven hands-on labs I completed in MIS 432: AI in Business at Western Washington University during Spring 2026. Each lab challenged me to go beyond surface-level AI hype and examine how a real company — from a drug-discovery startup to a self-driving car fleet — actually deploys machine learning, algorithmic decision-making, and agentic AI in production environments. I built interactive case-study websites for companies including Netflix, Spotify, Uber, Waymo, Airbnb, and Epic Healthcare, researching the data pipelines, model architectures, and governance frameworks that underpin each system. What I took away most was the persistent gap between what AI promises in a press release and what it takes to ship a system that is accurate, fair, and operationally reliable at scale.
+      This portfolio documents seven hands-on labs I completed in MIS 432: AI in Business at Western Washington University during Spring 2026. Each lab challenged me to go beyond surface-level AI hype and examine how a real company (from a drug-discovery startup to a self-driving car fleet) actually deploys machine learning, algorithmic decision-making, and agentic AI in production environments. I built interactive case-study websites for companies including Netflix, Spotify, Uber, Waymo, Airbnb, and Epic Healthcare, researching the data pipelines, model architectures, and governance frameworks that underpin each system. What I took away most was the persistent gap between what AI promises in a press release and what it actually takes to ship a system that is accurate, fair, and operationally reliable at scale.
     </p>
     <div class="about-stats">
       <div class="stat-item">
@@ -593,7 +730,7 @@
         </div>
         <div class="card-company">EveryCure</div>
         <div class="card-title">AI for Drug Repurposing</div>
-        <p class="card-desc">I investigated how EveryCure uses knowledge graphs and biomedical NLP to surface existing FDA-approved drugs as candidates for rare diseases — dramatically cutting the time and cost of bringing treatments to patients. This lab showed me how structured data from disparate scientific sources can be unified into a single queryable graph that a model can reason over.</p>
+        <p class="card-desc">I investigated how EveryCure uses knowledge graphs and biomedical NLP to surface existing FDA-approved drugs as candidates for rare diseases, dramatically cutting the time and cost of bringing treatments to patients. This lab showed me how structured data from disparate scientific sources can be unified into a single queryable graph that a model can reason over.</p>
         <div class="tags">
           <span class="tag">Knowledge Graphs</span>
           <span class="tag">NLP</span>
@@ -665,7 +802,7 @@
         </div>
         <div class="card-company">Waymo</div>
         <div class="card-title">Deep Learning & Computer Vision</div>
-        <p class="card-desc">I examined how Waymo fuses LiDAR, radar, and camera data through deep convolutional networks to perceive and navigate complex urban environments in real time. This was the most technically demanding lab — it clarified how the gap between 99% and 99.999% model accuracy is what separates a demo car from a commercially viable safety-critical system.</p>
+        <p class="card-desc">I examined how Waymo fuses LiDAR, radar, and camera data through deep convolutional networks to perceive and navigate complex urban environments in real time. This was the most technically demanding lab, and it clarified how the gap between 99% and 99.999% model accuracy is what separates a demo car from a commercially viable safety-critical system.</p>
         <div class="tags">
           <span class="tag">Computer Vision</span>
           <span class="tag">Deep Learning</span>
@@ -683,7 +820,7 @@
         </div>
         <div class="card-company">Airbnb</div>
         <div class="card-title">Marketplace AI & Dynamic Pricing</div>
-        <p class="card-desc">I studied how Airbnb's Smart Pricing and search-ranking systems use machine learning to simultaneously serve hosts, guests, and the platform's marketplace health. The dual-sided nature of the platform means every optimization trade-off has downstream effects on both supply and demand — a reminder that ML in marketplaces is as much mechanism design as it is model engineering.</p>
+        <p class="card-desc">I studied how Airbnb's Smart Pricing and search-ranking systems use machine learning to simultaneously serve hosts, guests, and the platform's marketplace health. The dual-sided nature of the platform means every optimization trade-off has downstream effects on both supply and demand, which is a reminder that ML in marketplaces is as much mechanism design as it is model engineering.</p>
         <div class="tags">
           <span class="tag">Marketplace AI</span>
           <span class="tag">Dynamic Pricing</span>
@@ -701,7 +838,7 @@
         </div>
         <div class="card-company">Epic Healthcare</div>
         <div class="card-title">Agentic AI & Insurance Advocacy</div>
-        <p class="card-desc">I built a case study around agentic AI workflows in healthcare — specifically how autonomous AI agents can coordinate prior-authorization appeals, navigate insurer documentation requirements, and surface clinical evidence to support patient advocacy at scale. This lab raised the highest-stakes governance questions of the quarter: when and how should a human be in the loop for a system making decisions that affect patient care?</p>
+        <p class="card-desc">I built a case study around agentic AI workflows in healthcare, looking at how autonomous AI agents can coordinate prior-authorization appeals, navigate insurer documentation requirements, and surface clinical evidence to support patient advocacy at scale. This lab raised the highest-stakes governance questions of the quarter: when and how should a human be in the loop for a system making decisions that affect patient care?</p>
         <div class="tags">
           <span class="tag">Agentic AI</span>
           <span class="tag">Healthcare AI</span>
@@ -726,21 +863,21 @@
           <span class="takeaway-num">01</span>
           <span class="takeaway-text">
             <strong>AI is only as good as its data pipeline.</strong>
-            Every company in this portfolio invested as heavily in data infrastructure — labeling, cleaning, feature engineering, and real-time ingestion — as in the models themselves. A brilliant architecture trained on bad or incomplete data consistently underperforms a simpler model trained on high-quality, representative data.
+            Every company in this portfolio invested as heavily in data infrastructure (labeling, cleaning, feature engineering, and real-time ingestion) as in the models themselves. A brilliant architecture trained on bad or incomplete data consistently underperforms a simpler model trained on high-quality, representative data.
           </span>
         </li>
         <li>
           <span class="takeaway-num">02</span>
           <span class="takeaway-text">
             <strong>Every AI system needs a human-in-the-loop governance plan.</strong>
-            From Waymo's safety drivers to Epic's clinical oversight requirements, every production AI system I studied had explicit mechanisms for human review, override, and accountability. Governance is not a compliance checkbox — it's load-bearing architecture.
+            From Waymo's safety drivers to Epic's clinical oversight requirements, every production AI system I studied had explicit mechanisms for human review, override, and accountability. Governance is not a compliance checkbox. It is load-bearing architecture.
           </span>
         </li>
         <li>
           <span class="takeaway-num">03</span>
           <span class="takeaway-text">
             <strong>Business value comes from workflow integration, not model accuracy alone.</strong>
-            Spotify's recommendations and Airbnb's pricing tools create value because they are deeply embedded in the product experience — not because they achieve a high benchmark score in isolation. The last mile of AI deployment, connecting a model's output to a real decision a user takes action on, is often harder than training the model.
+            Spotify's recommendations and Airbnb's pricing tools create value because they are deeply embedded in the product experience, not because they achieve a high benchmark score in isolation. The last mile of AI deployment, connecting a model's output to a real decision a user takes action on, is often harder than training the model.
           </span>
         </li>
         <li>
@@ -751,6 +888,48 @@
           </span>
         </li>
       </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PROTOTYPES -->
+<section class="prototypes-bg" id="prototypes">
+  <div class="section">
+    <p class="section-label">Personal Projects</p>
+    <h2 class="section-title">Prototype Ideas</h2>
+    <p class="proto-intro">
+      Studying how Netflix, Spotify, and Airbnb deploy AI at scale raised a natural question for me: what would it look like to apply the same ideas to problems I actually care about? These three prototypes are early-stage personal experiments, not polished products, but honest attempts to take concepts from the labs and test them against a real data problem. Each one runs into the same challenge the case studies kept describing: the hard part is never the model. It is the data structure, the workflow integration, and deciding where a human needs to stay in the loop.
+    </p>
+
+    <div class="proto-grid">
+
+      <!-- Recipe Ingredient Graph -->
+      <div class="proto-card">
+        <div class="proto-icon">🥗</div>
+        <div class="proto-label">Prototype 01</div>
+        <div class="proto-name">Recipe Ingredient Graph</div>
+        <p class="proto-desc">A knowledge graph that maps relationships between recipe ingredients, including substitutions, flavor pairings, and nutritional overlaps, so a user can ask questions like "what can I swap for coconut milk?" and get structured, reasoned answers rather than a flat list.</p>
+        <a class="proto-link" href="https://github.com/jonathanly843/RecipeIngredientGraph" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <!-- Medical Tracker -->
+      <div class="proto-card">
+        <div class="proto-icon">🩺</div>
+        <div class="proto-label">Prototype 02</div>
+        <div class="proto-name">Medical Tracker Prototype</div>
+        <p class="proto-desc">A personal health tracking prototype that logs symptoms and medications over time and surfaces patterns a user might miss across a long medical history. It is the kind of longitudinal view that is hard to reconstruct from scattered records.</p>
+        <a class="proto-link" href="https://github.com/jonathanly843/MedicalTrackerPrototype" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
+      <!-- El Comal -->
+      <div class="proto-card">
+        <div class="proto-icon">🌮</div>
+        <div class="proto-label">Prototype 03</div>
+        <div class="proto-name">El Comal Inventory Forecasting</div>
+        <p class="proto-desc">An inventory and demand forecasting prototype for a small Mexican restaurant that predicts ingredient needs based on historical sales patterns, day-of-week trends, and seasonal demand, with the goal of reducing waste and avoiding mid-service stockouts.</p>
+        <a class="proto-link" href="https://github.com/jonathanly843/Restaurant_Inventory_Forecasting_PrototypeElComal" target="_blank" rel="noopener">View on GitHub →</a>
+      </div>
+
     </div>
   </div>
 </section>
